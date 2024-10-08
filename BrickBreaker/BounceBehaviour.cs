@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BottomBounceBehaviour : MonoBehaviour
+public class BounceBehaviour : MonoBehaviour
 {
     private BallManager ballManager;
     private GameObject topPaddle;
