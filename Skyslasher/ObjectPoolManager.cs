@@ -34,12 +34,6 @@ public class ObjectPoolManager : MonoBehaviour
         _ParticleSystemObjectEmpty.transform.SetParent(_objectPooledEmptyHolder.transform);
     }
 
-    private void InitializePools()
-    {
-        // Initialize pools for SC bullets and Drill bullets if necessary 
-
-    }
-
     public static GameObject SpawnObject(GameObject objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
     {
         string objectName = objectToSpawn.name;
