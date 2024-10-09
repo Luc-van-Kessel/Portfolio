@@ -22,9 +22,7 @@ public class ObjectManager : MonoBehaviour
     public delegate void ObjectMoved();
     public event ObjectMoved OnObjectsMoved;
 
-    public AudioSource AudioSource;
-    //Layermask for particle layer 
-        
+    public AudioSource AudioSource;        
     private CinemachineCameraShakeController camShake;
 
     private void Start()
@@ -50,6 +48,7 @@ public class ObjectManager : MonoBehaviour
 
         camShake = FindAnyObjectByType<CinemachineCameraShakeController>();
     }
+    
     public void SwitchObjects()
     {
         StartCoroutine(MoveObjectsDownAndSwitch());
@@ -129,7 +128,6 @@ public class ObjectManager : MonoBehaviour
 
         // Deactivate the particle systems
         StartCoroutine(SetParticles(objectsToSwitch[currentIndex].transform, false, 2f));
-
 
         if (OnObjectsMoved != null)
         {
