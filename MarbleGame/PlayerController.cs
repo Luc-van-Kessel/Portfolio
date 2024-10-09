@@ -27,23 +27,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         dead = GetComponent<Death>();
-        //originalScale = transform.localScale;
-        //// Set the scale of the player to a fixed value
-        //transform.localScale = new Vector3(2, 2, 2);
     }
     void Update()
     {
-        MovePlayerRelativeToCamera();
-        //if the camera moves the ball rotates with its own transform too with transform.forward and transform.right local
         //Good for handling inputs or animation
         ProcessInputs();
-
-
     }
 
     private void FixedUpdate()
     {
-        MovePlayerRelativeToCamera();
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
 
@@ -52,14 +44,13 @@ public class PlayerController : MonoBehaviour
  
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + rightRelativeVerticalInput;
 
-        //Debug.Log(cameraRelativeMovement);
+        //if the camera moves the ball rotates with its own transform too with transform.forward and transform.right local
         if (cameraRelativeMovement.magnitude > maxSpeed)
         {
             cameraRelativeMovement = cameraRelativeMovement.normalized * maxSpeed;
         }
 
         rb.AddForce(cameraRelativeMovement * moveSpeed);
-
 
         if (jump == true)
         {
@@ -68,7 +59,8 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
 
         }
-    }      
+    }       
+    
     void ProcessInputs()
     {
         zInput = Input.GetAxis("Vertical");
@@ -82,12 +74,6 @@ public class PlayerController : MonoBehaviour
         {
             jump = false;
         }
-    }
-    void MovePlayerRelativeToCamera()
-    {
-       
-     
-
     }
 
     private void OnCollisionEnter(Collision collision)
