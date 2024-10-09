@@ -8,8 +8,8 @@ public class PickUpCollecter : MonoBehaviour
     // This property can be read by any code that has access to an instance of the class,
     // but can only be modified from within the class itself.
     public int NumberOfPickUps { get; private set; }
-
-    public UnityEvent<PickUpCollecter> OnPickupCollected;
+    public UnityEvent<PickUpCollecter> OnPickupCollected; 
+    
     public void PickupCollected()
     {        
         NumberOfPickUps++;

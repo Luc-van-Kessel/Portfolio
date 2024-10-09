@@ -7,7 +7,8 @@ public class CameraMouseController : MonoBehaviour
     [Range(0.01f, 1.0f)]
     public float smoothFactor = 0.5f;
     public bool rotateAroundPlayer = true;
-    public float rotationSpeed = 5.0f;
+    public float rotationSpeed = 5.0f; 
+    
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
