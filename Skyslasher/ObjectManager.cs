@@ -149,16 +149,4 @@ public class ObjectManager : MonoBehaviour
             }
         }
     }
-
-    // Make a object appear 
-    public void ShowStandBox(GameObject obj)
-    {
-        obj.SetActive(true);
-    }
-
-    // Make a object disappear
-    public void HideStandBox(GameObject obj)
-    {
-        obj.SetActive(false);
-    }
 }
