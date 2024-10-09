@@ -9,8 +9,7 @@ public class Gamemanager : MonoBehaviour
     public Transform spawnpoint;
     public int score = 0;
     public int lives = 3;
-    PaddleController controller;
-    
+    private PaddleController controller;
 
     private void Start()
     {
@@ -42,7 +41,6 @@ public class Gamemanager : MonoBehaviour
     }
 
     // You can also have methods for losing lives and other game management tasks
-
     public void LoseLife()
     {
         lives--;
