@@ -9,7 +9,6 @@ public class FlickerLights : MonoBehaviour
     public float timeDelay2;
     public float timeDelay3;
 
-    // Start is called before the first frame update
     void Start()
     {
         // Subscribe to the point loss event
@@ -22,7 +21,8 @@ public class FlickerLights : MonoBehaviour
         {
             StartCoroutine(Flickering2());
         }
-    }
+    } 
+    
     void ReactToPointLoss()
     {
         isFlickering = false;
@@ -30,8 +30,9 @@ public class FlickerLights : MonoBehaviour
         {
             StartCoroutine(Flicker());
         }
-    }
-    IEnumerator Flicker()
+    } 
+    
+    private IEnumerator Flicker()
     {
         isFlickering = true;
         GetComponent<Light>().enabled = false;
@@ -56,7 +57,7 @@ public class FlickerLights : MonoBehaviour
 
     } 
 
-    IEnumerator Flickering2()
+    private IEnumerator Flickering2()
     {
         isFlickering = false;
         GetComponent<Light>().enabled = false;
@@ -78,5 +79,4 @@ public class FlickerLights : MonoBehaviour
         GetComponent<Light>().enabled = true;
         yield return new WaitForSeconds(timeDelay3);
     }
-        
 }
