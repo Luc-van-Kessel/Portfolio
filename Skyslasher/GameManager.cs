@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public PlayableDirector PlayableDirector;
     public PlayableDirector EnterCurse;
     public PlayableDirector ExitCurse;
-    public Animator anim;
+    public Animator Anim;
 
     public bool isPaused = false;
    
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
     public void EnterPlayerInteractionState()
     {
         EnterCurse.Play();
-        anim.SetBool("PopUp", true);
+        Anim.SetBool("PopUp", true);
         Invoke("ShowUpgradePopup", 2.5f);
         CurrentState = GameState.PlayerInteraction;
         EffectSystem.SetEffects();
@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
     {
 
         ExitCurse.Play();
-        anim.SetBool("PopUp", false); 
+        Anim.SetBool("PopUp", false); 
 
         if (CurrentState == GameState.PlayerInteraction)
         {
