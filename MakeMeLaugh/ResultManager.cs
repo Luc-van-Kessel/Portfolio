@@ -17,7 +17,6 @@ public class ResultManager : MonoBehaviour
     public delegate void PointLostEvent();
     public static event PointLostEvent OnPointLost;
 
-
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
@@ -25,6 +24,7 @@ public class ResultManager : MonoBehaviour
     {
         instance = this;
     }
+    
     private void Update()
     {
         Dead();
@@ -36,7 +36,7 @@ public class ResultManager : MonoBehaviour
         Debug.Log("OUCH");
         Debug.Log(score);
         score--; 
-        OnPointLost?.Invoke(); // Invoke the event when a point is lost
+        OnPointLost?.Invoke(); 
     }
 
     private void Dead()
