@@ -138,8 +138,6 @@ public class Bullet : MonoBehaviour
         {
             ObjectPoolManager.ReturnObjectToPool(gameObject);
         }
-        //ObjectPoolManager.ReturnObjectToPool(gameObject);
-
     }
 
     private Vector3 AdjustRicochetDirection(Vector3 reflection, Collision collision)
