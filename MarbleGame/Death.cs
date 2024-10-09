@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
-    [SerializeField] private float timeToLoadScene;
+    [SerializeField] private float timeToLoadScene; 
+    
     public void Kill()
     {
         gameObject.SetActive(false);
