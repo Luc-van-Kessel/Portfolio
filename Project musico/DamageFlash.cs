@@ -53,11 +53,7 @@ public class DamageFlash : MonoBehaviour
             // Restore the original material.
             spriteRenderer.material = originalMaterial;
         }
-        //else
-        //{
-        //    Debug.LogError("Invalid MeshRenderer or flashMaterial.");
-        //}
-
+        
         flashRoutine = null;
     }
 }
