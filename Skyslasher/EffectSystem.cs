@@ -59,9 +59,6 @@ public class EffectSystem : MonoBehaviour
 
     public void ApplyCurse(Effect curse)
     { 
-
-
-
         Debug.Log("Applying curse: " + curse.Name);
         foreach (CurseEffect effect in curse.effects)
         {
