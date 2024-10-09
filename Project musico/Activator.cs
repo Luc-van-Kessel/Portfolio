@@ -110,15 +110,8 @@ public class Activator : MonoBehaviour
         }
     }
 
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         active = false;
-        // Check if all notes have been hit
-    }
-
-    public void Test(bool _test)
-    {
-
     }
 }
