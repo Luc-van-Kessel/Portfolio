@@ -12,11 +12,9 @@ public class NoteMovement : MonoBehaviour
 
     void Start()
     {
-
         beatTempo = conductor.secPerBeat;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!hasStarted)
