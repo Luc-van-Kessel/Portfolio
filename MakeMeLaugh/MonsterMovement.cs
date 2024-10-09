@@ -63,8 +63,6 @@ public class MonsterMovement : MonoBehaviour
                     hasDestroyedTimelineObject = true;
                 }
             }
-            
-           
         }
     }
 }
