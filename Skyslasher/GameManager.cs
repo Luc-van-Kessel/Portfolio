@@ -59,8 +59,6 @@ public class GameManager : MonoBehaviour
         { 
             case GameState.Countdown:
                 // Handle countdown state  
-                
-                UpdateCountdownState();
                 break;
             case GameState.GamePlay:
                 // Handle gameplay state 
@@ -68,7 +66,6 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.PlayerInteraction:
                 // Handle player interaction state 
-                UpdatePlayerInteractionState();
                 break;
         }
     }
@@ -90,23 +87,14 @@ public class GameManager : MonoBehaviour
     { 
         CurrentState = GameState.GamePlay;
         ObjectManager.MoveObjectsUp(); 
-        //ObjectManager.HideStandBox(StandBox);
         EffectSystem.ResetEffects();
-        //StandBox.GetComponent<Collider>().enabled = true;
-        ObjectManager.OnObjectsMoved += StartSpawning; // Subscribe to event
+        ObjectManager.OnObjectsMoved += StartSpawning; 
     }
     private void StartSpawning()
     { 
-        ObjectManager.OnObjectsMoved -= StartSpawning; // Unsubscribe from event
-        WaveManager.StartNextWave(); // Start spawning enemies
+        ObjectManager.OnObjectsMoved -= StartSpawning;
+        WaveManager.StartNextWave();
     } 
-
-    public void PopUp()
-    {
-        //UiManager.ShowUpgradePopup(); 
-        //Invoke("OnUpgradePopupClosed", 2);
-        //OnUpgradePopupClosed();
-    }
 
     public void EnterPlayerInteractionState()
     {
@@ -115,27 +103,14 @@ public class GameManager : MonoBehaviour
         Invoke("ShowUpgradePopup", 2.5f);
         CurrentState = GameState.PlayerInteraction;
         EffectSystem.SetEffects();
-        //if (StandBox != null)
-        //{
-        //    ObjectManager.ShowStandBox(StandBox); 
-
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("StandBox GameObject is null. Cannot show stand box.");
-        //}
-
         WaveManager.PauseSpawning();
         ObjectManager.SwitchObjects();
-        // Invoke ShowUpgradePopup method after 1 second
     }
 
     private void ShowUpgradePopup()
     {
         UiManager.ShowUpgradePopup();
     }
-
-
 
     private void OnCountdownFinished()
     { 
@@ -161,24 +136,10 @@ public class GameManager : MonoBehaviour
             EnterGameplayState();
         }
     }
-    private void UpdateCountdownState()
-    {
-    }
 
     private void UpdateGameplayState()
     {
         UiManager.ShowScore();
     }
 
-    private void UpdatePlayerInteractionState()
-    { 
-        // Handle player interaction state logic
-        // For example, pause spawning, display UI elements for player interaction, wait for player input, etc.
-    }
-
-    private void UpdateArenaChangeState()
-    {
-        // Handle arena change state logic
-        // For example, transition the arena, resume spawning, prepare for the next wave of enemies, etc.
-    }
 }
