@@ -7,13 +7,12 @@ public class PaddleController : MonoBehaviour
     public float maxX = 14.2f; 
     public bool canMove = false;
     private Vector3 initialPosition; 
-
-
+    
     private void Start()
     {
         initialPosition = transform.position;
-
-    }
+    } 
+    
     void Update()
     {
         if (canMove)
@@ -24,7 +23,6 @@ public class PaddleController : MonoBehaviour
             float clampedX = Mathf.Clamp(mousePosition.x, minX, maxX);
             transform.position = new Vector3(clampedX, transform.position.y, 0f);
         }
-       
     }
 
     public void ResetPaddle()
