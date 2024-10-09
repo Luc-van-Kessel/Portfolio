@@ -17,8 +17,6 @@ public class PointsManager : MonoBehaviour
         OnPointsChanged?.Invoke(totalPoints);
     } 
 
-
-
     public int GetTotalPoints()
     {
         return Mathf.RoundToInt(totalPoints);
