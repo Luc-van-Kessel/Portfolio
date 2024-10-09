@@ -16,9 +16,7 @@ public class MeleeDamage : MonoBehaviour
 
     private bool _isSlowMotionActive = false;
 
-
-    [SerializeField] private LayerMask enemyLayers; // Layer for enemies
-
+    [SerializeField] private LayerMask enemyLayers; 
 
     private void OnEnable()
     {
@@ -103,8 +101,5 @@ public class MeleeDamage : MonoBehaviour
             Destroy(hitFX, 2f);
         }
     }
-
-
-    //sssttt
 
 }
