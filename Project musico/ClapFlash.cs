@@ -46,9 +46,7 @@ public class ClapFlash : MonoBehaviour
         {
             // Swap to the flashSprite.
             spriteRenderer.sprite = flashSprite;
-
             yield return new WaitForSeconds(duration);
-
             // Restore the original sprite.
             spriteRenderer.sprite = originalSprite;
         }
@@ -56,7 +54,6 @@ public class ClapFlash : MonoBehaviour
         {
             Debug.LogError("Invalid SpriteRenderer or flashSprite.");
         }
-
         flashRoutine = null;
     }
 }
