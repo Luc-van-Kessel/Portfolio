@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WayPointFollower : MonoBehaviour
 {
-    [SerializeField] private GameObject[] wayPoints;
     private int currentWaypointIndex = 0;
+    [SerializeField] private GameObject[] wayPoints;
     [SerializeField] private float speed = 2f;
     [SerializeField] private bool stopAtEnd;
 
