@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeDamage : MonoBehaviour
@@ -101,5 +99,4 @@ public class MeleeDamage : MonoBehaviour
             Destroy(hitFX, 2f);
         }
     }
-
 }
