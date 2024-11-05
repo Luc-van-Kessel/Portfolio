@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,24 +8,23 @@ public class PlayerController : MonoBehaviour
     private float zInput;
     public float moveSpeed;
 
-    float maxSpeed = 10.0f; // replace 10.0f with your desired maximum speed
+    private float maxSpeed = 10.0f; // replace 10.0f with your desired maximum speed
 
     public float jumpForce;
-    [SerializeField]private bool isGrounded;
+    private bool isGrounded;
     
     private bool jump;
     private int groundContacts = 0;
-    //private Vector3 originalScale;
-
     private Death dead;
 
     void Start()
     {
         dead = GetComponent<Death>();
-    }
+    } 
+    
     void Update()
     {
-        //Good for handling inputs or animation
+        // Good for handling inputs or animation
         ProcessInputs();
     }
 
