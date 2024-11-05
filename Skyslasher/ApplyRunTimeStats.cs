@@ -12,36 +12,23 @@ namespace Skyslasher.Enemy
         [Space]
         [Header("References")]
 
-        // enemy enemy stats array
+        // enemy stats array
         public EnemyStats[] enemyStats;
 
-
-
-        //private float speedMultiplier = 1f;
-        //private float fireRateMultiplier = 1f;
-        private float damageMultiplier = 1f;
-        //private float healthMultiplier = 1f;
-        private float pointsMultiplier = 1f; 
-        
         public void UpdateSpeed(float modifier, ModifierType type)
         {
-            // change speed of all enemies 
             foreach (var enemy in enemyStats)
             { 
                 enemy.speed = ApplyModifier(enemy.speed, modifier, type);
             } 
-            // Additional logic if needed
         }
 
         public void UpdateDamage(float modifier, ModifierType type)
         {
-            //damageMultiplier = ApplyModifier(damageMultiplier, modifier, type);
             foreach (var enemy in enemyStats)
             {
                 enemy.damage = ApplyModifier(enemy.damage, modifier, type);
             }
-            Debug.Log("Player Damage Multiplier updated to: " + damageMultiplier);
-            // Additional logic if needed
         } 
         
         public void UpdateFireRate(float modifier, ModifierType type)
@@ -68,10 +55,8 @@ namespace Skyslasher.Enemy
             }
 
             pointsMultiplier = ApplyModifier(pointsMultiplier, modifier, type);
-            Debug.Log("Player Points Multiplier updated to: " + pointsMultiplier);
         } 
         
-
         private float ApplyModifier(float currentValue , float modifier, ModifierType type)
         {
             switch (type)
