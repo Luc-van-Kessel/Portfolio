@@ -44,19 +44,14 @@ public class ObjectManager : MonoBehaviour
         }
 
         StartCoroutine(SetParticles(objectsToSwitch[currentIndex].transform, false, 0f));
-
-
         camShake = FindAnyObjectByType<CinemachineCameraShakeController>();
     }
     
     public void SwitchObjects()
     {
         StartCoroutine(MoveObjectsDownAndSwitch());
-
         //start coroutine set particles
         StartCoroutine(SetParticles(objectsToSwitch[currentIndex].transform, false, 0f));
-
-
     }
 
     public void MoveObjectsUp()
