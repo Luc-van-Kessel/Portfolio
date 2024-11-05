@@ -3,12 +3,13 @@ using UnityEngine;
 public class Gamemanager : MonoBehaviour
 {
     public GameObject ballPrefab; // Assign the ball prefab in the Inspector
-    private BallManager currentBall;
-    private GameObject paddle;
-    private bool isGameStarted = false;
     public Transform spawnpoint;
     public int score = 0;
     public int lives = 3;
+    
+    private BallManager currentBall;
+    private GameObject paddle;
+    private bool isGameStarted = false;
     private PaddleController controller;
 
     private void Start()
@@ -40,7 +41,6 @@ public class Gamemanager : MonoBehaviour
         controller.canMove = true;
     }
 
-    // You can also have methods for losing lives and other game management tasks
     public void LoseLife()
     {
         lives--;
