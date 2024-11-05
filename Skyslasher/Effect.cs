@@ -6,13 +6,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Effect", menuName = "Effects/Effect")]
 public class Effect : ScriptableObject
 {
-    public string Name;
+    public string name;
     public string description;  
     public GameObject curseIcon;
 
     public CurseEffect[] effects;
-    public bool IsCurse; 
-    public int CostInCoins;
+    public bool isCurse; 
+    public int costInCoins;
 }
 
 
@@ -41,8 +41,6 @@ public enum GameAttribute
     Points,
     PlayerHealth,
     FireRate
-
-
 }
 
 public enum ModifierType
