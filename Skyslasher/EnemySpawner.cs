@@ -15,10 +15,12 @@ public class EnemySpawner : MonoBehaviour
     {
         public GameObject enemyPrefab;
         public float spawnChance;
-    }
+    } 
+    
     [SerializeField] private LayerMask obstacleLayers; // Specify which layers enemies should avoid
     [SerializeField] private Vector2 _spawnArea;
-    [SerializeField] private GameObject _spawnEffect;
+    [SerializeField] private GameObject _spawnEffect; 
+    
     public float SpawnTimer
     {
         get
@@ -36,7 +38,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float maxSpawnModifier;
     [SerializeField] private Transform _player;
 
-
     public List<EnemySpawnInfo> EnemyChancesList
     {
         get
@@ -53,7 +54,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<EnemySpawnInfo> _enemyChances;
     private float timer;
 
-
     public int MaxEnemyCount
     {
         get
@@ -65,9 +65,11 @@ public class EnemySpawner : MonoBehaviour
         {
             maxEnemyCount = value;
         }
-    }
+    } 
+    
     private int maxEnemyCount;
-    private int currentEnemyCount; 
+    private int currentEnemyCount;  
+    
     private void Start()
     {
         timer = _spawnTimer;
@@ -154,16 +156,9 @@ public class EnemySpawner : MonoBehaviour
             if (_spawnEffect != null)
             {
                 ObjectPoolManager.SpawnObject(_spawnEffect, position, Quaternion.identity, ObjectPoolManager.PoolType.ParticleSystem);
-                //Instantiate(_spawnEffect, position, Quaternion.identity);
             }
-            // Set any additional properties or targets for the enemy here
-
             // Increment current enemy count
             currentEnemyCount++;
-            // Instantiate the spawn effect
-           
-
-            // Destroy the enemy after a certain time (adjust the time as needed)
         }
     }
 
@@ -178,7 +173,7 @@ public class EnemySpawner : MonoBehaviour
             totalSpawnChance += info.spawnChance;
         }
 
-        float randomValue = UnityEngine.Random.Range(0f, totalSpawnChance);
+        float randomValue = Random.Range(0f, totalSpawnChance);
         float cumulativeChance = 0f;
 
         foreach (var info in allEnemies)
@@ -189,7 +184,7 @@ public class EnemySpawner : MonoBehaviour
                 return info.enemyPrefab;
             }
         }
-
+        
         // In case of failure, return null
         return null;
     }
@@ -233,7 +228,7 @@ public class EnemySpawner : MonoBehaviour
     private bool IsPositionValid(Vector3 position)
     {
         // Increase the radius of the sphere to cover a larger area
-        float checkRadius = 2.0f; // Adjust the radius as needed
+        float checkRadius = 2.0f; // Adjust the radius as need
 
         // Check for colliders within the specified sphere
         Collider[] colliders = Physics.OverlapSphere(position, checkRadius, obstacleLayers);
