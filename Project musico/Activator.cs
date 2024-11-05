@@ -1,10 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEngine.Events;
-//using UnityEditor.AnimatedValues;
 
 public class Activator : MonoBehaviour
 {
@@ -15,18 +10,15 @@ public class Activator : MonoBehaviour
     private int okayScore = 20;
     private int notesHit = 0; // Track the number of notes hit
     public AudioClip clap;
-    public UnityEvent OnNoteHit; // Event to trigger when a note is hit
 
     private GameObject note;
-
     public PointCollecter pointCollecter;
-
     public Animator anim;
 
-    ClapFlash clapFlash;
+    private ClapFlash clapFlash; 
+    
     private void Start()
     {
-        // Subscribe to the OnNoteHit event to invoke AddScore
         anim = GetComponent<Animator>();
         clapFlash = FindObjectOfType<ClapFlash>();
     }
