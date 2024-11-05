@@ -9,12 +9,10 @@ public class MonsterMovement : MonoBehaviour
     /// </summary>
     public Transform[] spawnpoints;
     public GameObject[] monsterPrefabs; 
-    
-    public GameObject timelineActivatedObject; 
-
     private int highestSpawnPointIndex = -1; 
     private GameObject currentMonster; 
-
+    
+    public GameObject timelineActivatedObject; 
     private bool hasDestroyedTimelineObject = false; 
 
     private void Start()
@@ -30,13 +28,15 @@ public class MonsterMovement : MonoBehaviour
     /// <summary>
     /// Delay the monster movement to allow the light flicker to finish
     /// </summary>
-    /// <returns></returns>
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(0.25f);
         MoveMonster();
     }
 
+    /// <summary>
+    /// Spawns a new monster at a designated spawn point based on the player's negative score
+    /// </summary>
     void MoveMonster()
     {
         if (ResultManager.instance.score < 0 && Mathf.Abs(ResultManager.instance.score) <= spawnpoints.Length)
@@ -57,6 +57,7 @@ public class MonsterMovement : MonoBehaviour
 
                 highestSpawnPointIndex = targetSpawnPointIndex;
 
+                // If the timeline-activated object exists and hasn't been destroyed yet, destroy it and mark it as destroyed
                 if (timelineActivatedObject != null && !hasDestroyedTimelineObject)
                 {
                     Destroy(timelineActivatedObject);
