@@ -1,40 +1,28 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
 public class PointCollecter : MonoBehaviour
 {
-    //public Activator activator;
     public TextMeshProUGUI scoreText;
-
-    public string tagToCount = "Note"; // Change this to your assigned tag
+    public string tagToCount = "Note"; 
     private int objectCount;
-
     private int currentScore = 0;
     private int maxScore;
-
+    
     public Slider slider;
-
     public int redValue;
     public int orangeValue;
     public int greenValue;
-
+    
     public int remainingNotes;
-
-    public UnityEvent events;
     public bool hasCheckedScore;
 
     EnemyHealth enemyHealth;
     PlayerHealth playerHealth;
 
-    public GameObject[] notePatterns; // An array of GameObjects representing note patterns.
+    public GameObject[] notePatterns; 
     private int currentPatternIndex = 0; 
 
     
@@ -62,18 +50,17 @@ public class PointCollecter : MonoBehaviour
         // max points / 3 so you have the green zone at 3/3 of the slider
         greenValue = maxScore / 3 * 3;
     }
+    
     void Update()
     {
         if (remainingNotes <= 0 && !hasCheckedScore)
         {
             CheckScore();
-
             hasCheckedScore = true;
 
             // Pattern completed, move to the next pattern.
             currentPatternIndex++;
             Debug.Log("currentPattern " + currentPatternIndex);
-            //ResetScore();
             Invoke("ResetScore", 2);
             Invoke("SpawnNotesForCurrentPattern", 2);
 
@@ -95,7 +82,6 @@ public class PointCollecter : MonoBehaviour
         remainingNotes--;
     }
  
-
     private void SpawnNotesForCurrentPattern()
     {
         if (currentPatternIndex < notePatterns.Length)
