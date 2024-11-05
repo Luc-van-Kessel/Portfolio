@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DisplayText : MonoBehaviour
 {
     public string message;
     public TextMeshProUGUI text;
-    public GameObject panel;
+    public GameObject panel; 
+    
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered");
         if (other.CompareTag("Player"))
         {
             text.text = message;
