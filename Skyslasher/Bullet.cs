@@ -24,7 +24,8 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         speed = stats.fireVelocity;
-    }
+    } 
+    
     private void Start()
     {
         Destroy(gameObject, 5f);
@@ -108,7 +109,6 @@ public class Bullet : MonoBehaviour
 
         }
         // everything else that is not a ricochet layer returns the object to the pool
-
         else if (collision.gameObject.TryGetComponent(out Health entity) && hitByPlayer)
         {
             entity.TakeDamage(damage);
@@ -121,7 +121,6 @@ public class Bullet : MonoBehaviour
             }
 
             return;
-
         }
         else if (collision.gameObject.TryGetComponent(out Health entity2) && collision.gameObject.GetComponent<PlayerMarker>())
         {
