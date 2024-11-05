@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 /// <summary>
 /// handles the switching of objects/levels and moves the grandchildren of the active object this script is referencing
